@@ -2,6 +2,7 @@
 ## Technologies 
 - Spring Boot
 - Spring Web
+- MySQL 
   
 ## Project Structure
 ```
@@ -11,7 +12,7 @@
      | 
      |-- /java/com/example/auth
                  |
-                 |-- /AuthApplication.java
-                 |-- /login
-                 |-- /register
+                 |-- /AuthApplication.java      -- Entrypoint for application 
+                 |-- /login                     -- Location for login controller + endpoints 
+                 |-- /register                  -- Location for register controller + endpoints 
 ```

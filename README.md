@@ -1,4 +1,6 @@
 # authJava 
+This is a demo application for Spring Boot + Spring Web that is made for static analysis testing purposes in sonarqube. 
+
 ## Technologies 
 - Spring Boot
 - Spring Web

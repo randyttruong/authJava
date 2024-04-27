@@ -8,18 +8,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.example.auth.entity.User;
+import com.example.auth.repository.UserRepository;
 
 
 @RestController
 public class RegisterController {
+
+    private final UserRepository userRepository;
+
+    public RegisterController(UserRepository userRepository) { 
+        this.userRepository = userRepository;
+    }
+
     @PostMapping("/register")
     public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest registerRequest) { 
-        //TODO: process POST request
-
         String username = registerRequest.getUsername();
         String password = registerRequest.getPassword();
         String firstName = registerRequest.getFirstName();
         String lastName = registerRequest.getLastName();
+        String email = registerRequest.getEmail();
 
         if (username.isEmpty() 
             || password.isEmpty()
@@ -30,9 +38,23 @@ public class RegisterController {
                                                                 "Register failed: Please provide the necessary fields"));
             }
 
-        // TODO: Add to the database 
+        User newUser = new User();
+        newUser.setUsername(username);
+        newUser.setPassword(password);
+        newUser.setFirstName(firstName);
+        newUser.setLastName(lastName);
+        newUser.setEmail(email);
+
+        if (this.userRepository.existsByUsername(username)) { 
+            return ResponseEntity.status(400)
+                                 .body(new RegisterResponse(false, 
+                                                            "Registration unsuccessful. Username already exists."));
+        } else { 
+        userRepository.save(newUser);
         
         return ResponseEntity.status(200)
-                             .body(new RegisterResponse(true, "Register success. Please login."));
+                             .body(new RegisterResponse(true, 
+                                                        "Register success. Please login."));
+        }
     }
 }

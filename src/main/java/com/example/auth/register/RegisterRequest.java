@@ -9,12 +9,14 @@ public class RegisterRequest {
     private String password;
     private String firstName;
     private String lastName;
+    private String email;
 
-    public RegisterRequest(String username, String password, String firstName, String lastName) { 
+    public RegisterRequest(String username, String password, String firstName, String lastName, String email) { 
         this.username = username; 
         this.password = password;
         this.firstName = firstName; 
         this.lastName = lastName;
+        this.email = email;
     }
 
     public String getUsername() { 
@@ -30,6 +32,9 @@ public class RegisterRequest {
     }
     public String getLastName() { 
         return this.lastName;
+    }
+    public String getEmail() { 
+        return this.email;
     }
 
     public void setUsername(String username) {

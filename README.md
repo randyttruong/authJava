@@ -7,10 +7,10 @@ This is a demo application for Spring Boot + Spring Web that is made for static 
 - MySQL 
 
 ## Dependencies 
-`spring-boot-devtools` - Devtools for automatic server refresh on save 
-`spring-boot-starter-data-jpa` - Java Persistence API for creating a data access layer between `authJava` and MySQL 
-`mysql-connector-java` - Java implementation of MySQL client libraries 
-`spring-boot-starter-web` - Starter for Spring Boot 
+- `spring-boot-devtools` - Devtools for automatic server refresh on save 
+- `spring-boot-starter-data-jpa` - Java Persistence API for creating a data access layer between `authJava` and MySQL 
+- `mysql-connector-java` - Java implementation of MySQL client libraries 
+- `spring-boot-starter-web` - Starter for Spring Boot 
   
 ## Project Structure
 ```
